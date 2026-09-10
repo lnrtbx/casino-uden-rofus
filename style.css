@@ -114,7 +114,7 @@ a:focus-visible, summary:focus-visible, button:focus-visible {
   .hero-inner > * { animation: none; opacity: 1; transform: none; }
 }
 
-.hero h1, .hero-sub, .eyebrow {
+.hero-sub, .eyebrow {
   text-shadow: 0 2px 14px rgba(0,0,0,0.5);
 }
 
@@ -144,11 +144,50 @@ a:focus-visible, summary:focus-visible, button:focus-visible {
   box-shadow: 0 0 8px var(--wine);
 }
 
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--cream);
+  background: rgba(201, 162, 75, 0.08);
+  box-shadow: 0 0 16px rgba(201, 162, 75, 0.3);
+  margin-bottom: 22px;
+}
+
+.badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px var(--gold);
+}
+
+/* Decorative section divider — thin gold line with soft center glow */
+
+.col + .col::before {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1px;
+  margin: 0 auto 56px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.55;
+  box-shadow: 0 0 10px rgba(201, 162, 75, 0.45);
+}
+
 .hero h1 {
   font-size: clamp(2.6rem, 6.5vw, 4rem);
   font-weight: 800;
   margin: 0 0 20px;
   line-height: 1.04;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.5), 0 0 40px rgba(201, 162, 75, 0.15);
 }
 
 .hero-sub {
@@ -182,6 +221,7 @@ a:focus-visible, summary:focus-visible, button:focus-visible {
   overflow-x: auto;
   border: 1px solid var(--border-soft);
   border-radius: 4px;
+  box-shadow: 0 0 24px rgba(201, 162, 75, 0.08);
 }
 
 thead tr {
@@ -354,6 +394,11 @@ footer {
 .split-image, .care-image {
   overflow: hidden;
   border-radius: 6px;
+  transition: box-shadow 0.4s ease;
+}
+
+.split-image:hover, .care-image:hover {
+  box-shadow: 0 0 28px rgba(201, 162, 75, 0.25);
 }
 
 .split-image img, .care-image img {
@@ -384,6 +429,10 @@ footer {
 
 .hero-link:hover::after {
   background: var(--gold);
+}
+
+.hero-link:hover {
+  text-shadow: 0 0 12px rgba(201, 162, 75, 0.5);
 }
 
 /* Table row hover */

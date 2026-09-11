@@ -179,7 +179,7 @@ a:focus-visible, summary:focus-visible, button:focus-visible {
 
 /* Decorative section divider — thin gold line with soft center glow */
 
-.col + .col::before {
+.col + .col:not(.split)::before {
   content: "";
   display: block;
   width: 120px;
@@ -263,6 +263,17 @@ tr:last-child td { border-bottom: none; }
   color: var(--text-muted);
 }
 
+/* Centered text-only block (no image) */
+
+.text-center {
+  text-align: center;
+}
+
+.text-center p {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
 /* Split layout */
 
 .split {
@@ -285,10 +296,14 @@ tr:last-child td { border-bottom: none; }
 .split li { margin-bottom: 14px; color: var(--text-muted); }
 
 @media (max-width: 760px) {
-  .split {
+  section.split,
+  section.split-reverse {
     grid-template-columns: 1fr;
   }
-  .split-image { max-width: 320px; }
+  .split-image {
+    max-width: 320px;
+    margin: 0 auto;
+  }
 }
 
 .split-reverse {
@@ -332,7 +347,7 @@ tr:last-child td { border-bottom: none; }
   .care {
     padding: 28px !important;
   }
-  .care-image { max-width: 240px; }
+  .care-image { max-width: 240px; margin: 0 auto; }
 }
 
 /* FAQ */
